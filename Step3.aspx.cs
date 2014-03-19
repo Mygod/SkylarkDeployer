@@ -72,7 +72,8 @@ namespace Mygod.Skylark.Deployer
                                                   Response.Flush();
                                               }
                                           });
-                repo.Commit("Skylark Deployer Commit");
+                var signature = new Signature("Mygod", "4702bb3b@opayq.com", DateTime.Now);
+                repo.Commit("Skylark Deployer Commit", signature, signature);
                 var remoteName = "appharbor";
                 if (repo.Network.Remotes[remoteName] != null)
                 {
