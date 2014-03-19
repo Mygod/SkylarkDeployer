@@ -21,8 +21,10 @@
             </asp:ContentPlaceHolder>
         </div>
         <div class="center">
-            Copyright &copy; 2014 <a href="http://mygod.tk/skylark/">云雀™</a> 部署器
-            V<%=CurrentAssembly.GetName().Version %>
+            Copyright &copy; 2014 <a href="http://mygod.tk/">Mygod 工作室™</a>
+            Powered by <a href="https://appharbor.com/">AppHarbor</a><br />
+            <a href="http://mygod.tk/skylark/">云雀™</a> 部署器 V<%=CurrentAssembly.GetName().Version %>
+            是一款<a href="https://github.com/Mygod/SkylarkDeployer">开源</a>的项目
         </div>
     </div>
 </body>
