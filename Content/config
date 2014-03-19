@@ -1,10 +1,7 @@
 [core]
-	bare = false
+	bare = true
 	repositoryformatversion = 0
 	filemode = false
 	symlinks = false
 	ignorecase = true
 	logallrefupdates = true
-[remote "appharbor"]
-	url = https://Mygod@appharbor.com/Mygod Skylark.git
-	fetch = +refs/heads/*:refs/remotes/appharbor/*

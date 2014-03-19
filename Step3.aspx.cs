@@ -15,6 +15,7 @@ namespace Mygod.Skylark.Deployer
     {
         protected void Process()
         {
+            Response.Flush();
             string name = Request.Form["name"], dir = Server.MapPath("~/Content/"),
                    result = Api("https://appharbor.com/tokens", "client_id=044928e2-f4f7-4209-" +
                                 "bdb6-388129e19fb0&client_secret=ae8f5e3d-1378-4ca9-9b3c-b7ed9a8609cc&code=" +
@@ -101,7 +102,7 @@ namespace Mygod.Skylark.Deployer
                       "href=\"http://{0}.apphb.com/View/readme.htm\" target=\"_blank\">这里</a>" +
                       "进入你崭新的 云雀™。（实验说明开始更新后 15 秒左右更新就完成了）</div>", name);
             WriteLine("<div>完成后您也可以前往 <a href=\"https://appharbor.com/applications/{0}\" target=\"_blank\">" +
-                      "AppHarbor</a> 删除您的应用或对您的应用进行更多配置。</div>");
+                      "AppHarbor</a> 删除您的应用或对您的应用进行更多配置。</div>", name);
         }
 
         private string uri;
@@ -128,7 +129,7 @@ namespace Mygod.Skylark.Deployer
 
         private void WriteLine(string format, params object[] args)
         {
-            Response.Write(String.Format(format, args) + Environment.NewLine);
+            Response.Write(string.Format(format, args) + Environment.NewLine);
         }
     }
 }
