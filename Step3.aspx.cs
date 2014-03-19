@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using LibGit2Sharp;
+using LibGit2Sharp.Handlers;
 
 namespace Mygod.Skylark.Deployer
 {
@@ -58,7 +59,8 @@ namespace Mygod.Skylark.Deployer
                     "_method=delete", token);
             }
             else name = name.ToLowerInvariant().Replace(" ", string.Empty);
-            WriteLine("<div>推送<a href=\"https://github.com/Mygod/Skylark/\">邪恶的代码</a>中……</div>");
+            WriteLine("<div>推送<a href=\"https://github.com/Mygod/SkylarkDeployer/tree/master/Content\">邪恶的代码" +
+                      "</a>中……</div>");
             Response.Write("<pre>");
             Response.Flush();
             using (var repo = new Repository(dir))
@@ -80,18 +82,19 @@ namespace Mygod.Skylark.Deployer
                         { Username = match.Groups[1].Value, Password = Request.Form["password"] },
                     OnPackBuilderProgress = (stage, current, total) =>
                     {
-                        WriteLine("git push Pack Builder Progress: {0}/{1}, Stage: {2}", current, total, stage);
+                        WriteLine("生成包进度: {0}/{1}, 当前阶段: {2}", current, total,
+                                  stage == PackBuilderStage.Counting ? "计数中" : "比较改变中");
                         Response.Flush();
                         return true;
                     },
                     OnPushStatusError = errors =>
                     {
-                        WriteLine("git push Status Error: {0} ({1})", errors.Message, errors.Reference);
+                        WriteLine("严重错误: {0} ({1})", errors.Message, errors.Reference);
                         Response.Flush();
                     },
                     OnPushTransferProgress = (current, total, bytes) =>
                     {
-                        WriteLine("git push Transfer Progress: {0}/{1}, Bytes: {2}", current, total, bytes);
+                        WriteLine("传输进度: {0}/{1}, {2}", current, total, GetSize(bytes));
                         Response.Flush();
                         return true;
                     }
@@ -131,6 +134,21 @@ namespace Mygod.Skylark.Deployer
         private void WriteLine(string format, params object[] args)
         {
             Response.Write(string.Format(format, args) + Environment.NewLine);
+        }
+
+        private static readonly string[]
+            Units = { "字节", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB", "BB", "NB", "DB", "CB" };
+        public static string GetSize(long size)
+        {
+            double byt = size;
+            byte i = 0;
+            while (byt > 1000)
+            {
+                byt /= 1024;
+                i++;
+            }
+            if (i == 0) return size.ToString("N0") + " 字节";
+            return byt.ToString("N") + " " + Units[i] + " (" + size.ToString("N0") + " 字节)";
         }
     }
 }

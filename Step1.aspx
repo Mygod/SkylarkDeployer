@@ -18,7 +18,7 @@
     <ul>
         <li>获得您账户的 token；</li>
         <li>创建新的应用；</li>
-        <li>部署我们<a href="https://github.com/Mygod/Skylark/">邪恶的代码</a>；</li>
+        <li>部署我们<a href="https://github.com/Mygod/SkylarkDeployer/tree/master/Content">邪恶的代码</a>；</li>
         <li>???</li>
         <li>Profit!</li>
     </ul>
