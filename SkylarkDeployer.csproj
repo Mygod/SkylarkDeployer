@@ -100,6 +100,11 @@
     <Content Include="fonts\metroSysIcons.woff" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\objects\info\" />
+    <Folder Include="Content\objects\pack\" />
+    <Folder Include="Content\refs\tags\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Content\config" />
     <Content Include="Content\description" />
     <Content Include="Content\HEAD" />
@@ -108,23 +113,19 @@
     <Content Include="Content\info\exclude" />
     <Content Include="Content\logs\HEAD" />
     <Content Include="Content\logs\refs\heads\master" />
+    <Content Include="Content\objects\00\f2e1ba571e62035f434c20a7acf6ebc6b9c236" />
     <Content Include="Content\objects\09\386ec7b2a2046a5495ffb3921e0c4eba267a55" />
     <Content Include="Content\objects\25\0415698d5b0005edd57b68503801bdc53fa1bf" />
-    <Content Include="Content\objects\2b\77f5214f5812cc778b94202addbb9afb2d62f4" />
     <Content Include="Content\objects\35\07906ba8c3829c0f913761a075b4a5177482c0" />
     <Content Include="Content\objects\43\f598769f9ba99ab7bc9c11483f92fafc617c94" />
     <Content Include="Content\objects\4e\198a81e4f78d89ba095a3683fb6efa669c2de1" />
+    <Content Include="Content\objects\5b\f9200d874784fab94faab8df23fa79e8d14d13" />
     <Content Include="Content\objects\6e\c466ec489b7fb6e510bb7e8ad0a8491fdcc863" />
     <Content Include="Content\objects\89\9096620a5a10f21d78ca6c43cf39ba9f21d795" />
     <Content Include="Content\objects\b3\ca19b1a96c29237aee8bed01c7bc59a5344ce9" />
-    <Content Include="Content\objects\d4\813848ce3cb741a914e3f660aea5feb5c29ea3" />
     <Content Include="Content\objects\e9\5c84a14221c47ed358959db8e583024c8fbf81" />
+    <Content Include="Content\objects\ec\db6beed76676639b6d9bac3e42c182d81bafde" />
     <Content Include="Content\refs\heads\master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\objects\info\" />
-    <Folder Include="Content\objects\pack\" />
-    <Folder Include="Content\refs\tags\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
