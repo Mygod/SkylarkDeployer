@@ -138,7 +138,7 @@ namespace Mygod.Skylark.Deployer
 
         private static readonly string[]
             Units = { "字节", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB", "BB", "NB", "DB", "CB" };
-        public static string GetSize(long size)
+        private static string GetSize(long size)
         {
             double byt = size;
             byte i = 0;
