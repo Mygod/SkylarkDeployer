@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Mygod.Skylark.Deployer.Site" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/css/metro-bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <script src="/js/jquery/jquery-2.0.3.min.js"></script>
+    <script src="/js/jquery/jquery.widget.min.js"></script>
+    <script src="/js/metro.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="metro">
+    <div class="container">
+        <h1>云雀™ 部署器</h1>
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="center">
+            Copyright &copy; 2014 <a href="http://mygod.tk/skylark/">云雀™</a> 部署器
+            V<%=CurrentAssembly.GetName().Version %>
+        </div>
+    </div>
+</body>
+</html>
