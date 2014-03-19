@@ -29,7 +29,7 @@
 <asp:Content ContentPlaceHolderID="body" runat="server">
     <h3>第二步：配置您的 云雀™</h3>
     <div>
-        干得漂亮！在接下来一步中你将会对你的 云雀™ 进行一些简单的配置，这些配置一旦确认将无法修改。
+        干得漂亮！在接下来一步中你将会对你的 云雀™ 进行一些简单的配置，部分配置一旦确认将无法修改。
         (不过你可以抛弃掉这个重新申请一个，反正是免费的！)
     </div>
     <form method="post" action="/3/">
@@ -43,7 +43,7 @@
                 <small>
                     说明：这一项也将作为您的域名，因此你也可以打空格，但是作为域名时会变成全小写且空格会被删除。如 My Skylark
                     的域名将为 myskylark.apphb.com。如果域名已经被占用，你的域名可能会变为 name-x.apphb.com，其中 name
-                    是你原来应得的域名，x 是一个自然数。
+                    是你原来应得的域名，x 是一个自然数。域名一旦确认不可更改。
                 </small>
             </div>
             <label>AppHarbor 密码</label>
@@ -87,7 +87,7 @@
                         <span class="check"></span> 美国东部 (测试环境)
                     </label>
                     <br />
-                    <small>说明：云雀™ 服务器的所在地。</small>
+                    <small>说明：云雀™ 服务器的所在地。一旦确认不可更改。</small>
                 </div>
             </div>
             <div class="center"><input type="submit" value="提交并完成任务" /></div>

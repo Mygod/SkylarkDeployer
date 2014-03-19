@@ -11,6 +11,8 @@
             <input type="submit" class="command-button" value="按下这个巨大的按钮去做任务！" />
         </form>
     </div>
+    <h3>什么是部署？</h3>
+    <div>部署只是 Mygod 工作室™ 对安装网站的另一种好玩的说法而已。</div>
     <h3>为 Geeks 特制的说明</h3>
     <div>Mygod 工作室™ 将使用您的账号进行以下不可见人的操作，您的信息将会在完成任务后销毁：</div>
     <ul>
