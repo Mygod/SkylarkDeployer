@@ -59,21 +59,8 @@ namespace Mygod.Skylark.Deployer
             WriteLine("<div>推送<a href=\"https://github.com/Mygod/Skylark/\">邪恶的代码</a>中……</div>");
             Response.Write("<pre>");
             Response.Flush();
-            using (var repo = new Repository(Repository.Init(dir)))
+            using (var repo = new Repository(dir))
             {
-                repo.Index.Stage(Directory.EnumerateFiles(dir, "*", SearchOption.AllDirectories)
-                                          .Select(path => path.Substring(dir.Length))
-                                          .Where(path => !path.StartsWith(".git", true, CultureInfo.InvariantCulture)),
-                                          new ExplicitPathsOptions
-                                          {
-                                              OnUnmatchedPath = msg =>
-                                              {
-                                                  WriteLine("git add: {0}", msg);
-                                                  Response.Flush();
-                                              }
-                                          });
-                var signature = new Signature("Mygod", "4702bb3b@opayq.com", DateTime.Now);
-                repo.Commit("Skylark Deployer Commit", signature, signature);
                 var remoteName = "appharbor";
                 if (repo.Network.Remotes[remoteName] != null)
                 {
