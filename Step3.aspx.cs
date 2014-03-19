@@ -13,8 +13,6 @@ namespace Mygod.Skylark.Deployer
 {
     public partial class Step3 : Page
     {
-        protected void Page_Load(object sender, EventArgs e) { }
-
         protected void Process()
         {
             string name = Request.Form["name"], dir = Server.MapPath("~/Content/"),
