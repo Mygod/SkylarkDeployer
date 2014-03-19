@@ -57,6 +57,7 @@ namespace Mygod.Skylark.Deployer
                 Api(string.Format("https://appharbor.com/applications/{0}/precompilation", name),
                     "_method=delete", token);
             }
+            else name = name.ToLowerInvariant().Replace(" ", string.Empty);
             WriteLine("<div>推送<a href=\"https://github.com/Mygod/Skylark/\">邪恶的代码</a>中……</div>");
             Response.Write("<pre>");
             Response.Flush();
