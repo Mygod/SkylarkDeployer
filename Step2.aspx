@@ -12,17 +12,20 @@
             return "";
         };
 
+        function toggleRegionField() {
+            var field = $('#region-field');
+            if (this.checked) {
+                if (!field.is(':hidden')) field.slideToggle(500);
+            }
+            else if (field.is(':hidden')) field.slideToggle(500);
+        }
+
         $(function () {
             var code = getQueryStringRegExp('code');
             if (isNullOrWhiteSpace(code)) location.href = '/';
             $('#code').val(code);
-            $('#redeploy').change(function() {
-                var field = $('#region-field');
-                if (this.checked) {
-                    if (!field.is(':hidden')) field.slideToggle(500);
-                }
-                else if (field.is(':hidden')) field.slideToggle(500);
-            });
+            $('#redeploy').change(toggleRegionField);
+            toggleRegionField();
         });
     </script>
 </asp:Content>
@@ -68,7 +71,7 @@
                 <br />
                 <small>
                     说明：如果你把你的 云雀™ 拆了且希望重装，使用重部署将不会再创建一个新的
-                    云雀™，但是你需要在名称内填写域名。
+                    云雀™，但是你需要在名称内填写域名，尤其是当你的域名是 name-x 的形式时。
                 </small>
             </div>
             <div id="region-field">
