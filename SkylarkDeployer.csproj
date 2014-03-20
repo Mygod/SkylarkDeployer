@@ -103,6 +103,7 @@
     <Folder Include="Content\objects\info\" />
     <Folder Include="Content\objects\pack\" />
     <Folder Include="Content\refs\tags\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\config" />

@@ -8,7 +8,9 @@
         <form action="https://appharbor.com/user/authorizations/new">
             <input type="hidden" name="client_id" value="044928e2-f4f7-4209-bdb6-388129e19fb0" />
             <input type="hidden" name="redirect_uri" value="http://skylarkdeployer.apphb.com/2/" />
-            <input type="submit" class="command-button" value="按下这个巨大的按钮去做任务！" />
+            <button type="submit" class="large command-button">
+                <i class="icon-rocket on-left"></i>按下这个巨大的<br />按钮去做任务！
+            </button>
         </form>
     </div>
     <h3>什么是部署？</h3>

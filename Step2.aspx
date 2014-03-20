@@ -78,7 +78,7 @@
             </div>
             <div id="region-field">
                 <label>故乡</label>
-                <div class="input-control radio">
+                <div class="input-control radio default-style">
                     <label class="inline-block">
                         <input type="radio" name="region" value="amazon-web-services::us-east-1" checked="checked" />
                         <span class="check"></span> 美国东部
