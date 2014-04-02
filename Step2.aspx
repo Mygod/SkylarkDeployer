@@ -20,12 +20,30 @@
             else if (field.is(':hidden')) field.slideToggle(500);
         }
 
+        var testservers = [];
+        function ping(index) {
+            var obj = testservers[index];
+            obj.img = new Image();
+            obj.onload = obj.onerror = function() {
+                $('#testserver' + index).val(
+                    (obj.sum = (obj.count ? obj.sum : 0) + new Date().getTime() - testservers[index].start) /
+                    (obj.count = (obj.count ? obj.count : 0) + 1));
+                if (obj.count <= 5) ping(index);
+            };
+            obj.start = new Date().getTime();
+            this.img.src = "http://testserver" + index + ".apphb.com/";
+        }
+
         $(function () {
             var code = getQueryStringRegExp('code');
             if (isNullOrWhiteSpace(code)) location.href = '/';
             $('#code').val(code);
             $('#redeploy').change(toggleRegionField);
             toggleRegionField();
+            for (var i = 0; i < 3; i++) {
+                testservers[i] = {};
+                ping(i);
+            }
         });
     </script>
 </asp:Content>
@@ -84,18 +102,20 @@
                         <label class="inline-block">
                             <input type="radio" name="region" value="amazon-web-services::us-east-1"
                                    checked="checked" />
-                            <span class="check"></span> 美国东部
+                            <span class="check"></span> 美国东部 [<output id="testserver0">...</output>]
                         </label>
                         <label class="inline-block">
                             <input type="radio" name="region" value="amazon-web-services::eu-west-1" />
-                            <span class="check"></span> 欧洲西部
+                            <span class="check"></span> 欧洲西部 [<output id="testserver1">...</output>]
                         </label>
                         <label class="inline-block">
                             <input type="radio" name="region" value="amazon-web-services::us-east-1::beta" />
-                            <span class="check"></span> 美国东部 (测试环境)
+                            <span class="check"></span> 美国东部 (测试环境) [<output id="testserver2">...</output>]
                         </label>
                         <br />
-                        <small>说明：云雀™ 服务器的所在地，一旦确认不可更改。</small>
+                        <small>
+                            说明：云雀™ 服务器的所在地，一旦确认不可更改。方括号内将显示平均 ping 时间，数值越小，速度越快。
+                        </small>
                     </div>
                 </div>
                 <div class="center"><input type="submit" value="提交并完成任务" /></div>
