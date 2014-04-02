@@ -2,7 +2,9 @@
 <asp:Content ContentPlaceHolderID="body" runat="server">
     <section>
         <h2>欢迎使用 云雀™ 部署器！</h2>
-        <div>不必担心！Mygod 工作室™ 深深地知道如今广大用户都喜欢做任务拿经验，因此要部署 云雀™ 只需简简单单的一二三！</div>
+        <div>
+            不必担心！Mygod 工作室™ 深深地知道如今广大用户都喜欢做任务拿经验，因此要(重)部署/删除 云雀™ 只需简简单单的一二三！
+        </div>
     </section>
     <section>
         <h2>第一步：登录/注册 AppHarbor 并授权</h2>
@@ -18,8 +20,12 @@
         </div>
     </section>
     <section>
-        <h3>什么是部署？</h3>
-        <div>部署只是 Mygod 工作室™ 对安装网站的另一种好玩的说法而已。</div>
+        <h3>什么是(重)部署/删除？</h3>
+        <ul>
+            <li>部署只是 Mygod 工作室™ 对安装网站的另一种好玩的说法而已；</li>
+            <li>那重部署就是重装了呗；</li>
+            <li>删除就是删除，就这么简单。</li>
+        </ul>
     </section>
     <section>
         <h3>为 Geeks 特制的说明</h3>

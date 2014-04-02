@@ -12,12 +12,23 @@
             return "";
         };
 
-        function toggleRegionField() {
-            var field = $('#region-field');
-            if (this.checked) {
-                if (!field.is(':hidden')) field.slideToggle(500);
+        function toggleFields() {
+            var passwordField = $('#password-field');
+            var regionField = $('#region-field');
+            switch ($("input[type='radio'][name='operation']:checked").val()) {
+                case 'deploy':
+                    if (passwordField.is(':hidden')) passwordField.slideToggle(500);
+                    if (regionField.is(':hidden')) regionField.slideToggle(500);
+                    break;
+                case 'redeploy':
+                    if (passwordField.is(':hidden')) passwordField.slideToggle(500);
+                    if (!regionField.is(':hidden')) regionField.slideToggle(500);
+                    break;
+                case 'delete':
+                    if (!passwordField.is(':hidden')) passwordField.slideToggle(500);
+                    if (!regionField.is(':hidden')) regionField.slideToggle(500);
+                    break;
             }
-            else if (field.is(':hidden')) field.slideToggle(500);
         }
 
         var testservers = [];
@@ -28,7 +39,7 @@
                 $('#testserver' + index).val((
                     (obj.sum = (obj.count ? obj.sum : 0) + new Date().getTime() - testservers[index].start) /
                     (obj.count = (obj.count ? obj.count : 0) + 1)).toFixed() + 'ms');
-                if (obj.count <= 5) ping(index);
+                if (obj.count <= 10) ping(index);
             };
             obj.start = new Date().getTime();
             obj.img.src = "http://testserver" + index + ".apphb.com/";
@@ -38,8 +49,9 @@
             var code = getQueryStringRegExp('code');
             if (isNullOrWhiteSpace(code)) location.href = '/';
             $('#code').val(code);
-            $('#redeploy').change(toggleRegionField);
-            toggleRegionField();
+            
+            $("input[type='radio'][name='operation']").change(toggleFields);
+            toggleFields();
             for (var i = 0; i < 3; i++) {
                 testservers[i] = {};
                 ping(i);
@@ -51,8 +63,7 @@
     <section>
         <h3>第二步：配置您的 云雀™</h3>
         <div>
-            干得漂亮！在接下来一步中你将会对你的 云雀™ 进行一些简单的配置，部分配置一旦确认将无法修改。
-            (不过你可以抛弃掉这个重新申请一个，反正是免费的！)
+            干得漂亮！在接下来一步中你将会对你的 云雀™ 进行一些简单的配置，部分配置一旦确认将无法修改。(不过你可以抛弃掉这个重新申请一个，反正是免费的！)
         </div>
         <form method="post" action="/3/">
             <fieldset>
@@ -63,38 +74,40 @@
                     <button class="btn-clear"></button>
                     <br />
                     <small>
-                        说明：这一项也将作为您的域名，因此你也可以打空格，但是作为域名时会变成全小写且空格会被删除。如
-                        My Skylark 的域名将为 myskylark.apphb.com。如果域名已经被占用，你的域名可能会变为
-                        name-x.apphb.com，其中 name 是你原来应得的域名，x 是一个自然数。域名一旦确认不可更改。
+                        说明：这一项也将作为您的域名，因此你也可以打空格，但是作为域名时会变成全小写且空格会被删除。如 My Skylark 的域名将为 myskylark.apphb.com。如果域名已经被占用，你的域名可能会变为 name-x.apphb.com，其中 name 是你原来应得的域名，x 是一个自然数。域名一旦确认不可更改。
                     </small>
                 </div>
-                <label>AppHarbor 密码</label>
-                <div class="input-control password">
-                    <input type="password" name="password" required="required" />
-                    <button class="btn-reveal"></button>
-                    <br />
-                    <small>
-                        说明：我们需要临时使用您的密码以便于我们为您的 云雀™
-                        推送我们<a href="https://github.com/Mygod/SkylarkDeployer/tree/master/Content">邪恶的代码</a>。
-                        <br />
-                        免责声明：Mygod 工作室™
-                        不会存储/利用/传播您的密码，您的密码仅用于临时使用。但您的密码在传输过程中可能会被人监听，如果您想要
-                        100% 的安全，推荐您在完成部署后在 AppHarbor 修改您的密码。
-                    </small>
-                </div>
-                <label>重部署</label>
-                <div class="input-control switch">
+                <label>操作</label>
+                <div class="input-control radio default-style">
                     <label class="inline-block">
-                        <input type="checkbox" id="redeploy" name="redeploy" value="redeploy" />
-                        <span class="check"></span>
+                        <input type="radio" name="operation" value="deploy" checked="checked" />
+                        <span class="check"></span> 部署
+                    </label>
+                    <label class="inline-block">
+                        <input type="radio" name="operation" value="redeploy" />
+                        <span class="check"></span> 重部署
+                    </label>
+                    <label class="inline-block">
+                        <input type="radio" name="operation" value="delete" />
+                        <span class="check"></span> 删除
                     </label>
                     <br />
                     <small>
-                        说明：如果您把您的 云雀™ 拆了且希望重装，使用重部署将不会再创建一个新的
-                        云雀™，您需要在名称内填写域名，尤其是当您的域名是 name-x 的形式时。如果你想修改您的 云雀™
-                        的故乡，请在 AppHarbor 中删除您的 云雀™ 然后重新部署一个新的。<br />
-                        警告：重部署后您的 云雀™ 中的文件、设置将被全部删除，请做好备份！
+                        说明：如果您把您的 云雀™ 拆了且希望重装，使用重部署将不会再创建一个新的 云雀™，您需要在名称内填写域名，尤其是当您的域名是 name-x 的形式时。如果你想修改您的 云雀™ 的故乡，请在这里删除您旧的 云雀™ 然后再重新部署一个新的。<br />
+                        警告：重部署/删除后您的 云雀™ 中的文件、设置将被全部删除，请做好备份！
                     </small>
+                </div>
+                <div id="password-field">
+                    <label>AppHarbor 密码</label>
+                    <div class="input-control password">
+                        <input type="password" name="password" required="required" />
+                        <button class="btn-reveal"></button>
+                        <br />
+                        <small>
+                            说明：我们需要临时使用您的密码以便于我们为您的 云雀™ 推送我们<a href="https://github.com/Mygod/SkylarkDeployer/tree/master/Content">邪恶的代码</a>。<br />
+                            免责声明：Mygod 工作室™ 不会存储/利用/传播您的密码，您的密码仅用于临时使用。但您的密码在传输过程中可能会被人监听，如果您想要 100% 的安全，推荐您在完成部署后在 AppHarbor 修改您的密码。
+                        </small>
+                    </div>
                 </div>
                 <div id="region-field">
                     <label>故乡</label>
