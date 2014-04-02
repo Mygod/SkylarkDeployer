@@ -49,7 +49,6 @@
             var code = getQueryStringRegExp('code');
             if (isNullOrWhiteSpace(code)) location.href = '/';
             $('#code').val(code);
-            
             $("input[type='radio'][name='operation']").change(toggleFields);
             toggleFields();
             for (var i = 0; i < 3; i++) {

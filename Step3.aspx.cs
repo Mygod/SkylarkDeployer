@@ -112,7 +112,7 @@ namespace Mygod.Skylark.Deployer
                           "href=\"http://{0}.apphb.com/View/readme.htm\" target=\"_blank\">这里</a>" +
                           "进入你崭新的 云雀™。（实验说明开始更新后 15 秒左右更新就完成了）</div>", name);
                 WriteLine("<div>完成后您也可以前往 <a href=\"https://appharbor.com/applications/{0}\"" +
-                          " target=\"_blank\">AppHarbor</a> 删除您的应用或对您的应用进行更多配置。</div>", name);
+                          " target=\"_blank\">AppHarbor</a> 对您的应用进行更高级的配置。</div>", name);
             }
         }
 
