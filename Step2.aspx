@@ -31,7 +31,7 @@
                 if (obj.count <= 5) ping(index);
             };
             obj.start = new Date().getTime();
-            this.img.src = "http://testserver" + index + ".apphb.com/";
+            obj.img.src = "http://testserver" + index + ".apphb.com/";
         }
 
         $(function () {
