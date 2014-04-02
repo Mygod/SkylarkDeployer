@@ -25,9 +25,9 @@
             var obj = testservers[index];
             obj.img = new Image();
             obj.img.onload = obj.img.onerror = function () {
-                $('#testserver' + index).val(
+                $('#testserver' + index).val((
                     (obj.sum = (obj.count ? obj.sum : 0) + new Date().getTime() - testservers[index].start) /
-                    (obj.count = (obj.count ? obj.count : 0) + 1));
+                    (obj.count = (obj.count ? obj.count : 0) + 1)).toFixed() + 'ms');
                 if (obj.count <= 5) ping(index);
             };
             obj.start = new Date().getTime();
