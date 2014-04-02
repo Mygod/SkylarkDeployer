@@ -24,7 +24,7 @@
         function ping(index) {
             var obj = testservers[index];
             obj.img = new Image();
-            obj.onload = obj.onerror = function () {
+            obj.img.onload = obj.img.onerror = function () {
                 $('#testserver' + index).val(
                     (obj.sum = (obj.count ? obj.sum : 0) + new Date().getTime() - testservers[index].start) /
                     (obj.count = (obj.count ? obj.count : 0) + 1));
