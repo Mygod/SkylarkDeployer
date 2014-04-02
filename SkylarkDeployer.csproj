@@ -70,7 +70,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -103,7 +103,6 @@
     <Folder Include="Content\objects\info\" />
     <Folder Include="Content\objects\pack\" />
     <Folder Include="Content\refs\tags\" />
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\config" />

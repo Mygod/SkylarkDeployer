@@ -11,22 +11,20 @@
     <script src="/js/jquery/jquery-2.0.3.min.js"></script>
     <script src="/js/jquery/jquery.widget.min.js"></script>
     <script src="/js/metro.min.js"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body class="metro">
-    <div class="container">
-        <h1>云雀™ 部署器</h1>
-        <div>
-            <asp:ContentPlaceHolder ID="body" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-        <div class="center">
+    <main>
+        <header>
+            <h1>云雀™ 部署器</h1>
+        </header>
+        <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+        <footer>
             Copyright &copy; 2014 <a href="http://mygod.tk/">Mygod 工作室™</a>
             Powered by <a href="https://appharbor.com/">AppHarbor</a><br />
             <a href="http://mygod.tk/skylark/">云雀™</a> 部署器 V<%=CurrentAssembly.GetName().Version %>
             是一款<a href="https://github.com/Mygod/SkylarkDeployer">开源</a>的项目
-        </div>
-    </div>
+        </footer>
+    </main>
 </body>
 </html>
