@@ -34,15 +34,22 @@
         var testservers = [];
         function ping(index) {
             var obj = testservers[index];
-            obj.img = new Image();
-            obj.img.onload = obj.img.onerror = function () {
-                $('#testserver' + index).val((
+            obj.start = new Date().getTime();
+            var work = {
+                url: "http://testserver" + index + ".apphb.com/",
+                dataType: 'jsonp',
+                error: function() {
+                    $('#testserver' + index + '_ping').val((
                     (obj.sum = (obj.count ? obj.sum : 0) + new Date().getTime() - testservers[index].start) /
                     (obj.count = (obj.count ? obj.count : 0) + 1)).toFixed() + 'ms');
-                if (obj.count <= 10) ping(index);
+                    if (obj.count <= 10) ping(index);
+                }
             };
-            obj.start = new Date().getTime();
-            obj.img.src = "http://testserver" + index + ".apphb.com/";
+            work.success = function(json) {
+                $('#testserver' + index + '_space').val(json.text);
+                work.error();
+            };
+            $.ajax(work);
         }
 
         $(function () {
@@ -109,24 +116,29 @@
                     </div>
                 </div>
                 <div id="region-field">
-                    <label>故乡</label>
+                    <label class="block">故乡</label>
                     <div class="input-control radio default-style">
-                        <label class="inline-block">
+                        <label class="block">
                             <input type="radio" name="region" value="amazon-web-services::us-east-1"
                                    checked="checked" />
-                            <span class="check"></span> 美国东部 [<output id="testserver0">...</output>]
+                            <span class="check"></span> 美国东部
+                            [<output id="testserver0_ping">...</output>]
+                            {<output id="testserver0_space">...</output>}
                         </label>
-                        <label class="inline-block">
+                        <label class="block">
                             <input type="radio" name="region" value="amazon-web-services::eu-west-1" />
-                            <span class="check"></span> 欧洲西部 [<output id="testserver1">...</output>]
+                            <span class="check"></span> 欧洲西部
+                            [<output id="testserver1_ping">...</output>]
+                            {<output id="testserver1_space">...</output>}
                         </label>
-                        <label class="inline-block">
+                        <label class="block">
                             <input type="radio" name="region" value="amazon-web-services::us-east-1::beta" />
-                            <span class="check"></span> 美国东部 (测试环境) [<output id="testserver2">...</output>]
+                            <span class="check"></span> 美国东部 (测试环境)
+                            [<output id="testserver2_ping">...</output>]
+                            {<output id="testserver2_space">...</output>}
                         </label>
-                        <br />
                         <small>
-                            说明：云雀™ 服务器的所在地，一旦确认不可更改。方括号内将显示平均 ping 时间，数值越小，速度越快。
+                            说明：云雀™ 服务器的所在地，一旦确认不可更改。方括号内将显示平均 ping 时间，数值越小，速度越快。大括号内显示服务器可用空间，推荐选择大的。
                         </small>
                     </div>
                 </div>
