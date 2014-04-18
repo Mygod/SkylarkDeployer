@@ -55,12 +55,12 @@
     <Content Include="css\iconFont.min.css" />
     <Content Include="css\site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="js\jquery\jquery-2.1.0.min.js" />
     <Content Include="Step1.aspx" />
     <Content Include="fonts\iconFont.dev.svg" />
     <Content Include="fonts\iconFont.svg" />
     <Content Include="fonts\metroSysIcons.svg" />
     <Content Include="Global.asax" />
-    <Content Include="js\jquery\jquery-2.0.3.min.js" />
     <Content Include="css\metro-bootstrap-responsive.min.css" />
     <Content Include="css\metro-bootstrap.min.css" />
     <Content Include="js\jquery\jquery.widget.min.js" />
@@ -91,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
-    <Content Include="js\jquery\jquery-2.0.3.min.map" />
     <Content Include="fonts\iconFont.eot" />
     <Content Include="fonts\iconFont.json" />
     <Content Include="fonts\iconFont.ttf" />
@@ -126,6 +125,9 @@
     <Content Include="Content\objects\ec\db6beed76676639b6d9bac3e42c182d81bafde" />
     <Content Include="Content\objects\ed\5382c524bf71ba705486c574cf2bcd799fd622" />
     <Content Include="Content\refs\heads\master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\jquery\jquery-2.1.0.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
