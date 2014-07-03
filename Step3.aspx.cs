@@ -120,7 +120,9 @@ namespace Mygod.Skylark.Deployer
                     catch (LibGit2SharpException exc)
                     {
                         Success = false;
-                        if (exc.Message.EndsWith("401")) WriteLine("错误：AppHarbor 密码错误，请返回重新输入。");
+                        if (exc.Message.EndsWith("401"))
+                            WriteLine("错误：AppHarbor 密码错误，请<a href=\"javascript:history.go(-1);\">返回</a>" +
+                                      "将操作改成重部署，重新输入密码后再继续。");
                         else throw;
                     }
                 }
