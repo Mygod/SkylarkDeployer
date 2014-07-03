@@ -125,6 +125,7 @@ namespace Mygod.Skylark.Deployer
                     }
                 }
                 WriteLine("</pre>");
+                if (!Success) return;
                 WriteLine("<div>部署完毕。请等待 1 分钟，然后点击<a href=\"http://{0}.apphb.com/Update/\" " +
                           "target=\"_blank\">这里</a>开始更新你的站点，更新完成后点击<a " +
                           "href=\"http://{0}.apphb.com/View/readme.htm\" target=\"_blank\">这里</a>" +
