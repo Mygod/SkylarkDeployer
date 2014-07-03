@@ -11,6 +11,14 @@
             <a href="http://mygod.tk/skylark/#disqus_thread">云雀™ 页面的留言板</a>）
         </div>
         <div>连接 AppHarbor 中……</div>
-<% Process(); %>
+        <% Process();
+           if (Success)
+           { %>
+        <div>&nbsp;</div>
+        <h4>常见问题</h4>
+        <ul>
+            <li>尝试更新时出现 404 Not Found？<br />请尝试点击 开始 - 运行，输入 ipconfig /flushdns 回车，再刷新；若无效，说明云端还未部署完成，请稍后再试。</li>
+        </ul>
+        <% } %>
     </section>
 </asp:Content>

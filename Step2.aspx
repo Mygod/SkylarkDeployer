@@ -107,7 +107,7 @@
                 <div id="password-field">
                     <label>AppHarbor 密码</label>
                     <div class="input-control password">
-                        <input type="password" name="password" required="required" />
+                        <input type="password" name="password" />
                         <button class="btn-reveal"></button>
                         <br />
                         <small>

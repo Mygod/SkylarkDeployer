@@ -14,6 +14,8 @@ namespace Mygod.Skylark.Deployer
 {
     public partial class Step3 : Page
     {
+        protected bool Success = true;
+
         protected void Process()
         {
             Response.Flush();
@@ -28,10 +30,17 @@ namespace Mygod.Skylark.Deployer
                 return;
             }
             if (operation == "delete")
-            {
-                Api("https://appharbor.com/applications/" + name, token: token, method: "DELETE");
-                WriteLine("<div>删除完毕。</div>");
-            }
+                try
+                {
+                    Api("https://appharbor.com/applications/" + name, token: token, method: "DELETE");
+                    WriteLine("<div>删除完毕。</div>");
+                }
+                catch (WebException exc)
+                {
+                    if (((HttpWebResponse) exc.Response).StatusCode == HttpStatusCode.NotFound)
+                        WriteLine("<div>错误：应用不存在。</div>");
+                    else throw;
+                }
             else
             {
                 WriteLine("<div>尝试获取当前用户名中……</div>");
@@ -81,30 +90,39 @@ namespace Mygod.Skylark.Deployer
                     }
                     var remote = repo.Network.Remotes.Add(remoteName,
                         string.Format("https://{0}@appharbor.com/{1}.git", match.Groups[1].Value, name));
-                    repo.Network.Push(remote, remote.RefSpecs
-                        .Select(refSpec => refSpec.Specification.Replace("/*", "/master")), new PushOptions
+                    try
                     {
-                        Credentials = new Credentials
-                            { Username = match.Groups[1].Value, Password = Request.Form["password"] },
-                        OnPackBuilderProgress = (stage, current, total) =>
+                        repo.Network.Push(remote, remote.RefSpecs
+                            .Select(refSpec => refSpec.Specification.Replace("/*", "/master")), new PushOptions
                         {
-                            WriteLine("生成包进度: {0}/{1}, 当前阶段: {2}", current, total,
-                                      stage == PackBuilderStage.Counting ? "计数中" : "比较改变中");
-                            Response.Flush();
-                            return true;
-                        },
-                        OnPushStatusError = errors =>
-                        {
-                            WriteLine("严重错误: {0} ({1})", errors.Message, errors.Reference);
-                            Response.Flush();
-                        },
-                        OnPushTransferProgress = (current, total, bytes) =>
-                        {
-                            WriteLine("传输进度: {0}/{1}, {2}", current, total, GetSize(bytes));
-                            Response.Flush();
-                            return true;
-                        }
-                    });
+                            Credentials = new Credentials
+                                { Username = match.Groups[1].Value, Password = Request.Form["password"] },
+                            OnPackBuilderProgress = (stage, current, total) =>
+                            {
+                                WriteLine("生成包进度: {0}/{1}, 当前阶段: {2}", current, total,
+                                          stage == PackBuilderStage.Counting ? "计数中" : "比较改变中");
+                                Response.Flush();
+                                return true;
+                            },
+                            OnPushStatusError = errors =>
+                            {
+                                WriteLine("严重错误: {0} ({1})", errors.Message, errors.Reference);
+                                Response.Flush();
+                            },
+                            OnPushTransferProgress = (current, total, bytes) =>
+                            {
+                                WriteLine("传输进度: {0}/{1}, {2}", current, total, GetSize(bytes));
+                                Response.Flush();
+                                return true;
+                            }
+                        });
+                    }
+                    catch (LibGit2SharpException exc)
+                    {
+                        Success = false;
+                        if (exc.Message.EndsWith("401")) WriteLine("错误：AppHarbor 密码错误，请返回重新输入。");
+                        else throw;
+                    }
                 }
                 WriteLine("</pre>");
                 WriteLine("<div>部署完毕。请等待 1 分钟，然后点击<a href=\"http://{0}.apphb.com/Update/\" " +
