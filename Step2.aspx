@@ -19,17 +19,17 @@
                 case 'deploy':
                     if (passwordField.is(':hidden')) passwordField.slideToggle(500);
                     if (regionField.is(':hidden')) regionField.slideToggle(500);
-                    passwordField.prop('required', true);
+                    $('input[name=password]').attr('required', true);
                     break;
                 case 'redeploy':
                     if (passwordField.is(':hidden')) passwordField.slideToggle(500);
                     if (!regionField.is(':hidden')) regionField.slideToggle(500);
-                    passwordField.prop('required', true);
+                    $('input[name=password]').attr('required', true);
                     break;
                 case 'delete':
                     if (!passwordField.is(':hidden')) passwordField.slideToggle(500);
                     if (!regionField.is(':hidden')) regionField.slideToggle(500);
-                    passwordField.prop('required', false);
+                    $('input[name=password]').attr('required', false);
                     break;
             }
         }

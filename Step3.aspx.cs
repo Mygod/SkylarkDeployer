@@ -26,7 +26,10 @@ namespace Mygod.Skylark.Deployer
                    token = HttpUtility.ParseQueryString(result)["access_token"];
             if (string.IsNullOrEmpty(token))
             {
-                WriteLine("<div>连接失败！错误信息：</div>{1}<pre>{0}</pre>", result, Environment.NewLine);
+                WriteLine("<div>连接失败！错误信息：</div>{1}{0}", result == "error=access_denied"
+                              ? "授权超时，请<a href=\"/\">返回第一步</a>重新授权。" : "<pre>" + result + "</pre>",
+                          Environment.NewLine);
+                Success = false;
                 return;
             }
             if (operation == "delete")
