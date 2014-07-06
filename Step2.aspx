@@ -108,7 +108,7 @@
                     </small>
                 </div>
                 <div id="password-field">
-                    <label>AppHarbor 密码</label>
+                    <label>AppHarbor 用户密码（非云雀™ 管理员密码）</label>
                     <div class="input-control password">
                         <input type="password" name="password" />
                         <button class="btn-reveal"></button>
