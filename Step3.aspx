@@ -18,7 +18,7 @@
         <ul>
             <li>
                 尝试更新时出现 404 Not Found？<br />
-                请尝试点击 开始 - 运行，输入 ipconfig /flushdns 回车，再刷新；若无效，说明云端还未部署完成，请稍后再试。
+                请尝试点击 开始 - 运行，输入 <code>ipconfig /flushdns</code> 回车，再刷新；若无效，说明云端还未部署完成，请稍后再试。
             </li>
         </ul>
         <% } %>
