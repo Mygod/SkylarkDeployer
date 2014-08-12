@@ -52,6 +52,27 @@
     <Content Include="bin\NativeBinaries\amd64\git2-65e9dc6.pdb" />
     <Content Include="bin\NativeBinaries\x86\git2-65e9dc6.dll" />
     <Content Include="bin\NativeBinaries\x86\git2-65e9dc6.pdb" />
+    <Content Include="Content\config" />
+    <Content Include="Content\description" />
+    <Content Include="Content\HEAD" />
+    <Content Include="Content\hooks\README.sample" />
+    <Content Include="Content\index" />
+    <Content Include="Content\info\exclude" />
+    <Content Include="Content\logs\HEAD" />
+    <Content Include="Content\logs\refs\heads\master" />
+    <Content Include="Content\objects\09\386ec7b2a2046a5495ffb3921e0c4eba267a55" />
+    <Content Include="Content\objects\35\07906ba8c3829c0f913761a075b4a5177482c0" />
+    <Content Include="Content\objects\43\f598769f9ba99ab7bc9c11483f92fafc617c94" />
+    <Content Include="Content\objects\47\f3d513af7c4fc2a52e2f5ae925e4083bee16d7" />
+    <Content Include="Content\objects\4e\198a81e4f78d89ba095a3683fb6efa669c2de1" />
+    <Content Include="Content\objects\6e\c466ec489b7fb6e510bb7e8ad0a8491fdcc863" />
+    <Content Include="Content\objects\89\9096620a5a10f21d78ca6c43cf39ba9f21d795" />
+    <Content Include="Content\objects\8b\6c27b90d810a6eda5e8a31aa14fc26701de6c1" />
+    <Content Include="Content\objects\b3\ca19b1a96c29237aee8bed01c7bc59a5344ce9" />
+    <Content Include="Content\objects\e9\5c84a14221c47ed358959db8e583024c8fbf81" />
+    <Content Include="Content\objects\ec\db6beed76676639b6d9bac3e42c182d81bafde" />
+    <Content Include="Content\objects\ed\5382c524bf71ba705486c574cf2bcd799fd622" />
+    <Content Include="Content\refs\heads\master" />
     <Content Include="css\iconFont.min.css" />
     <Content Include="css\site.css" />
     <Content Include="favicon.ico" />
@@ -104,30 +125,14 @@
     <Folder Include="Content\refs\tags\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\config" />
-    <Content Include="Content\description" />
-    <Content Include="Content\HEAD" />
-    <Content Include="Content\hooks\README.sample" />
-    <Content Include="Content\index" />
-    <Content Include="Content\info\exclude" />
-    <Content Include="Content\logs\HEAD" />
-    <Content Include="Content\logs\refs\heads\master" />
-    <Content Include="Content\objects\09\386ec7b2a2046a5495ffb3921e0c4eba267a55" />
-    <Content Include="Content\objects\35\07906ba8c3829c0f913761a075b4a5177482c0" />
-    <Content Include="Content\objects\43\f598769f9ba99ab7bc9c11483f92fafc617c94" />
-    <Content Include="Content\objects\47\f3d513af7c4fc2a52e2f5ae925e4083bee16d7" />
-    <Content Include="Content\objects\4e\198a81e4f78d89ba095a3683fb6efa669c2de1" />
-    <Content Include="Content\objects\6e\c466ec489b7fb6e510bb7e8ad0a8491fdcc863" />
-    <Content Include="Content\objects\89\9096620a5a10f21d78ca6c43cf39ba9f21d795" />
-    <Content Include="Content\objects\8b\6c27b90d810a6eda5e8a31aa14fc26701de6c1" />
-    <Content Include="Content\objects\b3\ca19b1a96c29237aee8bed01c7bc59a5344ce9" />
-    <Content Include="Content\objects\e9\5c84a14221c47ed358959db8e583024c8fbf81" />
-    <Content Include="Content\objects\ec\db6beed76676639b6d9bac3e42c182d81bafde" />
-    <Content Include="Content\objects\ed\5382c524bf71ba705486c574cf2bcd799fd622" />
-    <Content Include="Content\refs\heads\master" />
+    <Content Include="js\jquery\jquery-2.1.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\jquery\jquery-2.1.0.min.map" />
+    <Content Include="Content\COMMIT_EDITMSG" />
+    <Content Include="Content\objects\43\1ac6a91c273db073648edc5647f65f3ec6aaef" />
+    <Content Include="Content\objects\70\b0b8bd1db5e0408726707c82c6b97ac8f4a40b" />
+    <Content Include="Content\objects\c5\65593a28a129e9219a3f353ed0984d5ba2985b" />
+    <Content Include="Content\objects\dc\f4c8a91d9f3f4ae456406ebc67f966a1eb4b20" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
