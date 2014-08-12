@@ -135,12 +135,12 @@
                             [<output id="testserver1_ping">...</output>]
                             {<output id="testserver1_space">...</output>}
                         </label>
-<%--                        <label class="block">
+                        <label class="block">
                             <input type="radio" name="region" value="amazon-web-services::us-east-1::beta" />
                             <span class="check"></span> 美国东部 (测试环境)
                             [<output id="testserver2_ping">...</output>]
                             {<output id="testserver2_space">...</output>}
-                        </label>--%>
+                        </label>
                         <small>
                             说明：云雀™ 服务器的所在地，一旦确认不可更改。方括号内将显示平均 ping 时间，数值越小，速度越快。大括号内显示服务器可用空间，推荐选择大的。
                         </small>
