@@ -79,11 +79,12 @@
                 <input type="hidden" id="code" name="code" />
                 <label>名称</label>
                 <div class="input-control text">
-                    <input type="text" name="name" required="required" placeholder="My Skylark" />
+                    <input type="text" name="name" required="required" placeholder="My Skylark"
+                           pattern="( *[^ ]){3,255} *" title="名称中的有效字符，即非空格字符应有 3 至 255 个。" />
                     <button class="btn-clear"></button>
                     <br />
                     <small>
-                        说明：这一项也将作为您的域名，因此你也可以打空格，但是作为域名时会变成全小写且空格会被删除。如 My Skylark 的域名将为 myskylark.apphb.com。如果域名已经被占用，你的域名可能会变为 name-x.apphb.com，其中 name 是你原来应得的域名，x 是一个自然数。域名一旦确认不可更改。
+                        说明：这一项也将作为您的域名，因此你也可以打空格，但是作为域名时会变成全小写且空格会被删除。如 My Skylark 的域名将为 myskylark.apphb.com。名称中的有效字符，即非空格字符应有 3 至 255 个。如果域名已经被占用，你的域名可能会变为 name-x.apphb.com，其中 name 是你原来应得的域名，x 是一个自然数。域名一旦确认不可更改。
                     </small>
                 </div>
                 <label>操作</label>

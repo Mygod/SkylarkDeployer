@@ -57,6 +57,12 @@ namespace Mygod.Skylark.Deployer
                 }
                 if (operation == "deploy")
                 {
+                    var validChars = name.Replace(" ", string.Empty).Length;
+                    if (validChars < 3 || validChars > 255)
+                    {
+                        WriteLine("<div>错误：名称中的有效字符，即非空格字符应有 3 至 255 个。</div>");
+                        return;
+                    }
                     WriteLine("<div>创建应用中……</div>");
                     Response.Flush();
                     result = Api("https://appharbor.com/applications",
