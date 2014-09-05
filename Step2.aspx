@@ -136,8 +136,9 @@
                             [<output id="testserver1_ping">...</output>]
                             {<output id="testserver1_space">...</output>}
                         </label>
-                        <label class="block">
-                            <input type="radio" name="region" value="amazon-web-services::us-east-1::beta" />
+                        <label class="block" title="测试环境现已关闭。">
+                            <input type="radio" name="region" value="amazon-web-services::us-east-1::beta"
+                                   disabled="disabled" />
                             <span class="check"></span> 美国东部 (测试环境)
                             [<output id="testserver2_ping">...</output>]
                             {<output id="testserver2_space">...</output>}
