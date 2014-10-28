@@ -3,7 +3,7 @@
     <section>
         <h2>欢迎使用 云雀™ 部署器！</h2>
         <div>
-            不必担心！Mygod 工作室™ 深深地知道如今广大用户都喜欢做任务拿经验，因此要(重)部署/删除 云雀™ 只需简简单单的一二三！
+            不必担心！Mygod 工作室™ 深深地知道如今广大用户都喜欢做任务拿经验，因此要删除 云雀™ 只需简简单单的一二三！
         </div>
     </section>
     <section>
@@ -20,20 +20,11 @@
         </div>
     </section>
     <section>
-        <h3>什么是(重)部署/删除？</h3>
-        <ul>
-            <li>部署只是 Mygod 工作室™ 对安装网站的另一种好玩的说法而已；</li>
-            <li>那重部署就是重装了呗；</li>
-            <li>删除就是删除，就这么简单。</li>
-        </ul>
-    </section>
-    <section>
         <h3>为 Geeks 特制的说明</h3>
         <div>Mygod 工作室™ 将使用您的账号进行以下不可见人的操作，您的信息将会在完成任务后销毁：</div>
         <ul>
             <li>获得您账户的 token；</li>
-            <li>创建新的应用；</li>
-            <li>部署我们<a href="https://github.com/Mygod/SkylarkDeployer/tree/master/Content">邪恶的代码</a>；</li>
+            <li>删除你的应用；</li>
             <li>???</li>
             <li>Profit!</li>
         </ul>
