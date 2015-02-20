@@ -19,7 +19,7 @@
             <h1>云雀™ 部署器</h1>
         </header>
         <section>
-            <div>不幸的消息：由于 云雀™ 使用人数过多，AppHarbor 希望尽快减少数量，因此目前仅支持删除应用，希望大家自觉删除，Mygod 工作室™ 将尽快推出单云雀多用户功能；与此同时，你也可以继续使用公用的 云雀™，或将 云雀™ 部署在私有服务器上来继续享用您的 云雀™！</div>
+            <div>不幸的消息：由于 云雀™ 使用人数过多，AppHarbor 希望尽快减少数量，因此目前仅支持删除应用，希望大家自觉删除；与此同时，你也可以继续使用公用的 云雀™，或将 云雀™ 部署在私有服务器上来继续享用您的 云雀™！</div>
         </section>
         <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
         <footer>
